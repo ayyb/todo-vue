@@ -8,6 +8,7 @@
 </template>
 
 <script>
+import getDate from "@/components/common/getDate";
 export default {
   name: "ToDoInput.vue",
   data(){
@@ -18,7 +19,12 @@ export default {
   methods:{
     addTodo(){
       // vuex commit
-      this.$store.commit('addTodo', this.content)
+      let todoItem = {
+        content : this.content,
+        createdDate : `${getDate().month}/${getDate().date}`,
+        completed: false
+      }
+      this.$store.commit('addTodo', todoItem)
       this.content = '' //초기화
     }
   }

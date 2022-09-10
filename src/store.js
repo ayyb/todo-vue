@@ -18,6 +18,9 @@ const store = createStore({
         },
         addName(state, name){
           state.name = name
+        },
+        changeCheck(state,obj){
+            state.todos[obj.idx].completed = obj.data;
         }
     }
 })

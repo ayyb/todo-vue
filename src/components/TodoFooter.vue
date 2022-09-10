@@ -1,5 +1,5 @@
 <template>
-    <footer class="footer">Made by nari with 💛</footer>
+    <footer class="footer">Made by Liam with 🎶</footer>
 </template>
 
 <script>

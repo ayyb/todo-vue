@@ -12,7 +12,7 @@
     </p>
     <p class="title__task">
       You've got
-      <span class="title__task-total">{{ taskTotal }}</span> tasks today.
+      <span class="title__task-total">{{leftItem}} / {{ totalItem }}</span> tasks today.
     </p>
   </div>
 </template>
@@ -22,9 +22,19 @@ export default {
   name: 'TitleComp',
   props:["propName"],
   computed: {
-    taskTotal() {
+    totalItem() {
       return this.$store.state.todos.length
-    } },
+    } ,
+    leftItem(){
+      let count = 0;
+      for(let i=0; i<this.$store.state.todos.length; i++){
+        if(this.$store.state.todos[i].completed === false){
+          count++;
+        }
+      }
+      return count
+    }
+    },
   data(){
     return{
       message : "Good evening"

@@ -1,26 +1,19 @@
  <template>
     <header class="header">
-      <h1 class="logo">My Todo</h1>
+      <h1 class="logo">Todo List 😎</h1>
       <p class="date">{{ timestamp }}</p>
     </header>
   </template>
 
 <script>
+import getDate from "@/components/common/getDate";
 export default {
   name: "TodoHeader",
   data(){
     return{
-      timestamp:""
+      timestamp:`${getDate().month} / ${getDate().date} ${getDate().week}`
     }
   },
-  created(){
-    const now = new Date()
-    const month = now.getMonth() + 1
-    const date = now.getDate()
-    const weekList = new Array("Sun.","Mon.","Tue.","Wed.", "Thu.", "Fri", "Sat.")
-    const week = weekList[now.getDay()];
-    this.timestamp = `${month} / ${date} ${week}`
-  }
 }
 </script>
 

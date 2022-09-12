@@ -24,6 +24,10 @@ export default {
         completed: false,
         editable: false,
       }
+      if(this.content === ''){
+        alert("Please enter the contents.")
+        return
+      }
       this.$store.commit('addTodo', todoItem)
       this.content = '' //초기화
     }

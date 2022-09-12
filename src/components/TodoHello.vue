@@ -28,6 +28,9 @@ export default {
   },
   methods:{
     addUserName(){
+      if(this.userName === ''){
+        alert("Please enter a name.")
+      }
       this.$store.commit('addName', this.userName)
       this.$emit("addName", this.userName); //이벤트 발생
     }

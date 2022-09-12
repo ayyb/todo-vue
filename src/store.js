@@ -5,7 +5,8 @@ const store = createStore({
         return {
             // 컴포넌트에서 접근가능
             todos: [],
-            name:''
+            name:'',
+            deleted:{}
         }
     },
     mutations: {
@@ -15,6 +16,7 @@ const store = createStore({
             state.todos.push(content)
         },
         delTodo(state, idx){
+            state.deleted = state.todos[idx] //삭제된 항목 보관
             state.todos.splice(idx,1)
         },
         addName(state, name){
@@ -28,6 +30,25 @@ const store = createStore({
         },
         initData(state){
             state.todos = [];
+        },
+        restore(state){
+            state.todos.push(state.deleted)
+        },
+        sortItem(state,selectedSort){
+            if (selectedSort.value === "date-desc") {
+                const todos = state.todos
+                todos.sort(function(a, b) {
+                    return b.time - a.time;
+                })
+                state.todos = todos
+            } else if (selectedSort.value === "date-asc") {
+                const todos = state.todos
+                todos.sort(function(a, b) {
+                    return a.time - b.time;
+                })
+                state.todos = todos
+            }
+
         }
     }
 })

@@ -22,6 +22,7 @@ export default {
       let todoItem = {
         content : this.content,
         createdDate : `${getDate().month}/${getDate().date}`,
+        time : `${getDate().time}`,
         completed: false,
         editable: false,
       }

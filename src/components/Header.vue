@@ -11,7 +11,7 @@ export default {
   name: "TodoHeader",
   data(){
     return{
-      timestamp:`${getDate().month} / ${getDate().date} ${getDate().week}`
+      timestamp:`${getDate().month} / ${getDate().date} ${getDate().week} ${getDate().hour} : ${getDate().minute}`
     }
   },
 }

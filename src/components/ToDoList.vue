@@ -1,6 +1,11 @@
 <template>
   <ul id="todolist">
-    <li id="container" v-for="(data,idx) in todos" :key="data.id">
+    <template v-if="isEmpty">
+      <ul class="list" v-if="isEmpty">
+        <li>데이터가 없어용 😒😒</li>
+      </ul>
+    </template>
+    <li id="container" v-for="(data,idx) in todos" :key="data.id" v-else>
       <input type="checkbox" :id="idx" :checked="data.completed === true" @change="toggleCheck(data,idx)"/>
       <template v-if="data.editable">
         <input type="text" v-model="editContext">
@@ -29,6 +34,9 @@ export default {
     }
   },
   computed: {
+    isEmpty(){
+      return this.$store.state.todos.length <= 0
+    },
     todos() {
       return this.$store.state.todos
     } },

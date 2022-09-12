@@ -1,7 +1,7 @@
 <template>
   <div class="title">
     <p class="title__message">
-      <span>{{ message }},</span>
+      <span>Good {{ message }},</span>
       <span
           v-on:keyup.enter="handleName"
           v-on:blur="handleBlur"
@@ -12,12 +12,13 @@
     </p>
     <p class="title__task">
       You've got
-      <span class="title__task-total">{{leftItem}} / {{ totalItem }}</span> tasks today.
+      <span class="title__task-total">{{ leftItem }} / {{ totalItem }}</span> tasks today.
     </p>
   </div>
 </template>
 
 <script>
+import getDate from "@/components/common/getDate";
 export default {
   name: 'TitleComp',
   props:["propName"],
@@ -37,7 +38,7 @@ export default {
     },
   data(){
     return{
-      message : "Good evening"
+      message: `${getDate().daytime}`
     }
   },
   methods: {

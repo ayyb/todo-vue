@@ -1,11 +1,20 @@
 <template>
   <div>
-    <h1>Hello!</h1>
+    <h1>My todo List 😊</h1>
+    <h2>Hello!</h2>
     <h3>What is your name?</h3>
-<!--    <div class="hello">What is your name?</div>-->
-    <label for="user-name">Name : </label>
-    <input type="text" id="user-name" v-model="userName" v-on:keyup.enter="addUserName" />
-    <button @click="addUserName">Enter</button>
+    <v-responsive
+        class="mx-auto"
+        max-width="344"
+    >
+    <v-text-field
+        clearable
+        outlined
+        label="name"
+        id="user-name" v-model="userName" v-on:keyup.enter="addUserName"
+    ></v-text-field>
+    </v-responsive>
+    <v-btn @click="addUserName">Enter</v-btn>
   </div>
 </template>
 

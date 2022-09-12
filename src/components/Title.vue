@@ -1,18 +1,19 @@
 <template>
   <div class="title">
     <p class="title__message">
-      <span>Good {{ message }},</span>
-      <span
-          v-on:keyup.enter="handleName"
-          v-on:blur="handleBlur"
-          class="title__name"
-          ref="test"
-          contenteditable="true"
-      >{{ propName }}</span>
+      <span class="font-italic">Good {{ message }},</span>
+      <span v-on:keyup.enter="handleName"
+            v-on:blur="handleBlur"
+            ref="test"
+            contenteditable="true"
+            class="text-decoration-underline">
+        {{ propName }}
+      </span>
     </p>
+
     <p class="title__task">
       You've got
-      <span class="title__task-total">{{ leftItem }} / {{ totalItem }}</span> tasks today.
+      <span class="title__task-total text-h4">{{ leftItem }} / {{ totalItem }}</span> tasks today.
     </p>
   </div>
 </template>

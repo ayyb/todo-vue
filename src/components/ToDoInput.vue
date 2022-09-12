@@ -1,10 +1,8 @@
 <template>
-  <div>
-    <div id="todoinput">
-      <input type="text" v-model="content" @keypress.enter="addTodo" placeholder="Enter your task here"/>
-      <button type="submit" @click="addTodo">add</button>
-    </div>
-  </div>
+      <v-container class="grey">
+            <v-text-field solo type="text" v-model="content" @keypress.enter="addTodo" placeholder="Enter your task here"></v-text-field>
+            <v-btn type="submit" @click="addTodo" class="w-20">add</v-btn>
+      </v-container>
 </template>
 
 <script>

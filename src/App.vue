@@ -5,7 +5,8 @@
       <Header />
       <Title :propName="userName"/>
       <ToDoInput @add-to-do="addTodo"/>
-      <ToDoList :todos="todos"/>
+      <TodoController />
+      <ToDoList/>
       <Footer />
     </div>
     <div v-else>
@@ -22,6 +23,7 @@ import ToDoList from './components/ToDoList.vue'
 import Header from './components/Header.vue'
 import Footer from './components/TodoFooter.vue'
 import TodoHello from './components/TodoHello.vue'
+import TodoController from "@/components/TodoController";
 
 export default {
   name: 'App',
@@ -31,7 +33,8 @@ export default {
     ToDoList,
     Header,
     Footer,
-    TodoHello
+    TodoHello,
+    TodoController
   },
   data(){
     return{

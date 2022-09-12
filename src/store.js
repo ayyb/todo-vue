@@ -1,5 +1,6 @@
 import {createStore} from 'vuex'
 const store = createStore({
+
     state() {
         return {
             // 컴포넌트에서 접근가능
@@ -21,6 +22,12 @@ const store = createStore({
         },
         changeCheck(state,obj){
             state.todos[obj.idx].completed = obj.data;
+        },
+        editContent(state,obj){
+            state.todos[obj.idx].content = obj.context;
+        },
+        initData(state){
+            state.todos = [];
         }
     }
 })

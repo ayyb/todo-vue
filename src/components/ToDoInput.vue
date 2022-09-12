@@ -22,7 +22,8 @@ export default {
       let todoItem = {
         content : this.content,
         createdDate : `${getDate().month}/${getDate().date}`,
-        completed: false
+        completed: false,
+        editable: false,
       }
       this.$store.commit('addTodo', todoItem)
       this.content = '' //초기화

@@ -6,6 +6,7 @@
           {{ modalText }}
         </slot>
       </v-card-text>
+      <v-btn @click="$emit('close')">ok</v-btn>
     </v-card>
 </template>
 

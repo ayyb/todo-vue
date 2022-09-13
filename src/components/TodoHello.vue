@@ -16,20 +16,34 @@
     </v-responsive>
     <v-btn @click="addUserName">Enter</v-btn>
   </div>
+  <!--모달 관련-->
+  <v-dialog v-model="showModal" max-width="500">
+    <Modal v-on:close="showModal = false">
+      <template v-slot:modal-text>{{modalText}}</template>
+    </Modal>
+  </v-dialog>
 </template>
 
 <script>
+import Modal from "@/components/Modal";
 export default {
   name: "TodoHello",
+  components:{
+    Modal
+  },
   data(){
     return {
-      userName:""
+      userName:"",
+      showModal:false,
+      modalText:'',
     }
   },
   methods:{
     addUserName(){
       if(this.userName === ''){
-        alert("Please enter a name.")
+        this.showModal = !this.showModal;
+        this.modalText = "Please enter a name."
+        return
       }
       this.$store.commit('addName', this.userName)
       this.$emit("addName", this.userName); //이벤트 발생

@@ -9,11 +9,10 @@
         <v-row align="center" >
           <v-col
               class="d-flex"
-              cols="9"
+              cols="12"
           >
             <v-select
                 class="d-flex ma-3"
-                width="250px"
                 v-model="selected"
                 :items="items"
                 item-title="key"
@@ -22,8 +21,6 @@
                 variant="outlined"
                 @update:modelValue="sortTodo"
             ></v-select>
-          </v-col>
-          <v-col>
             <v-btn class="clear ma-3" @click="clearTodo">Clear All</v-btn>
 <!--            <v-btn class="ma-3" @click="restoreTodo">Restore</v-btn>-->
           </v-col>

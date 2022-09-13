@@ -46,7 +46,7 @@ export default {
         return
       }
       this.$store.commit('addName', this.userName)
-      this.$emit("addName", this.userName); //이벤트 발생
+      // this.$emit("addName", this.userName); //이벤트 발생
     }
   }
 }

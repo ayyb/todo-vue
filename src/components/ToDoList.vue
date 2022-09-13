@@ -22,36 +22,40 @@
 
 <!--    </li>-->
 <!--  </ul>-->
-  <template v-if="isEmpty">
-    <ul class="list" v-if="isEmpty">
-      <li>데이터가 없어용 😒😒</li>
-    </ul>
-  </template>
+  <div v-if="isEmpty">
+        <p class="text-center">데이터가 없어용 😒😒</p>
+  </div>
 
     <v-list-item value="widgets" v-for="(data,idx) in todos" :key="data.id">
-      <v-row>
-      <v-col>
-        <v-checkbox
-            color="indigo"
-            hide-details
-            v-model="data.completed"
-            @change="toggleCheck(data,idx)"
-        ></v-checkbox>
+      <v-row align="center">
+        <!--cols는 차지하는 범위 최대 12-->
+      <v-col cols="1">
+        <v-container fluid>
+          <v-checkbox
+              class="shrink"
+              color="indigo"
+              hide-details
+              v-model="data.completed"
+              @change="toggleCheck(data,idx)"
+          ></v-checkbox>
+        </v-container>
+        </v-col>
+        <v-col>
+          <v-container fluid class="d-flex">
+          <template v-if="data.editable">
+            <v-text-field outlined v-model="editContext" class="mt-5 mr-3"></v-text-field>
+            <v-btn class="ma-auto d-inline" @click="notShow(data,idx)">edit</v-btn>
+          </template>
+          <template v-else>
+            <v-list-item-title class="" :class="{'text-decoration-line-through' : data.completed === true } "
+            >{{ data.content }}</v-list-item-title>
+          </template>
+          </v-container>
       </v-col>
-      <v-col
-          class="d-flex"
-      ><template v-if="data.editable">
-        <v-text-field outlined v-model="editContext"></v-text-field>
-        <v-btn class="ma-2" @click="notShow(data,idx)">edit</v-btn>
-      </template>
-        <template v-else >
-          <v-list-item-title id="naver" :class="{'text-decoration-line-through' : data.completed === true}"
-          >{{ data.content }}</v-list-item-title>
-        </template>
-      </v-col>
-      <v-col v-if="!data.completed">
-        <v-btn class="list__modify ma-3" @click="modify(data)">Modify</v-btn>
-        <v-btn class="list__delete ma-3" @click="del(idx)">Delete</v-btn></v-col>
+        <div class="float-right">
+          <v-btn class="ma-2" @click="modify(data)">Modify</v-btn>
+          <v-btn class="mr-4" @click="del(idx)">Delete</v-btn>
+        </div>
       </v-row>
     </v-list-item>
 

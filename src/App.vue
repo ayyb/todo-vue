@@ -22,7 +22,7 @@
         <div v-if="userName">
           <Header />
           <Title :propName="userName"/>
-          <ToDoInput @add-to-do="addTodo"/>
+          <ToDoInput />
           <TodoController />
           <v-divider max-width="344"></v-divider>
           <ToDoList/>
@@ -30,11 +30,9 @@
           <Footer />
         </div>
         <div v-else>
-          <TodoHello v-on:addName="addUserName" />
+          <TodoHello />
         </div>
       </div>
-
-      <!--모달 정보-->
 
     </v-main>
   </v-layout>
@@ -64,19 +62,15 @@ export default {
   },
   data(){
     return{
-      userName: '',
+      //userName: '',
     }
   },
-  created(){
-    this.userName = this.$store.state.name
+  computed:{
+    userName(){
+      return this.$store.state.name
+    }
   },
   methods:{
-    addTodo(content){
-      this.todos.push(content)
-    },
-    addUserName(userName){
-      this.userName = userName
-    }
   }
 }
 </script>

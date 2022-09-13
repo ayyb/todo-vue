@@ -33,9 +33,14 @@
           <TodoHello v-on:addName="addUserName" />
         </div>
       </div>
+
+      <!--모달 정보-->
+
     </v-main>
   </v-layout>
+
 </template>
+
 
 <script>
 import Title from './components/Title.vue'
@@ -55,11 +60,11 @@ export default {
     Header,
     Footer,
     TodoHello,
-    TodoController
+    TodoController,
   },
   data(){
     return{
-      userName: ''
+      userName: '',
     }
   },
   created(){
